@@ -8,5 +8,11 @@ c:\Program Files\qemu\qemu-system-s390x.exe" -machine s390-ccw-virtio -cpu max,z
 Booting
 
 ```
-c:\Program Files\qemu\qemu-system-s390x.exe" -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -nic user,model=virtio,hostfwd=tcp::2222-:22  -drive file=z.img,if=none,id=virtio-disk0,format=raw,cache=none -device virtio-blk-ccw,devno=fe.0.0001,drive=drive=virtio=disk0,id=virtio-disk0,bootindex=1,scsi=off
+c:\Program Files\qemu\qemu-system-s390x.exe" -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -nic user,model=virtio,hostfwd=tcp::2222-:22  -drive file=z.img,if=none,id=virtio-disk0,format=raw,cache=none -device virtio-blk-ccw,devno=fe.0.0001,drive=drive=virtio=disk0,id=virtio-disk0,bootindex=1
+```
+
+Configure TAP Network
+
+```
+"c:\Program Files\qemu\qemu-system-s390x.exe"  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -netdev tap,id=mynet0,ifname=TAP -device virtio-net-ccw,netdev=mynet0 -drive file=z.img,if=none,id=virtio-disk0,format=raw,cache=none -device virtio-blk-ccw,devno=fe.0.0001,drive=virtio-disk0,id=virtio-disk0,bootindex=1     
 ```
