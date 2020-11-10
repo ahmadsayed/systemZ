@@ -23,10 +23,10 @@ Configure TAP Network still not able to figure out networking, looks like I need
 
 Here I followed a mix of those two tutorials
 
-https://www.youtube.com/watch?v=QTBNt32ERWE&t=651s
-https://astr0baby.wordpress.com/2018/06/03/installing-ubuntu-18-04-server-s390x-in-hercules-mainframe-simulator/
+* https://www.youtube.com/watch?v=QTBNt32ERWE&t=651s
+* https://astr0baby.wordpress.com/2018/06/03/installing-ubuntu-18-04-server-s390x-in-hercules-mainframe-simulator/
 
-Also did some updates in networking from my side, the below configuration and Hercules build steps is only approach worked with me.
+Also I did some updates in networking from my side, and Important note, in order to make it works I need to follow the below build steps because newer version of Hercules cause an issue while chroot / and fail the installation
 
 ### Workable Configuration with Hercules  Ubuntu 18.04
 
