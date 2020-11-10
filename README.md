@@ -112,7 +112,8 @@ sysctl net.ipv4.conf.eth0.forwarding=1
 
 ## Installing OpenShift on Hercules
 
-the approach will be as follow the recommended in OpenShif is to create z/VM and get a VM to each node.
+Even if recommended in OpenShif is to create z/VM and get a VM to each node, I do not think running z/VM on emulator will be effecient.
+
 My approach will be as follow 
  * Create Emulator for each node, those nodes are connected to each other via same tunnl --> Tested and Working
  * bring a standard Machine and make it DNS on the same VPC and insure it is accessible from the z Machines --> Tested and Working
