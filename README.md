@@ -21,6 +21,13 @@ Configure TAP Network still not able to figure out networking, looks like I need
 
 ## Trials with Hercules
 
+Here I followed a mix of those two tutorials
+
+https://www.youtube.com/watch?v=QTBNt32ERWE&t=651s
+https://astr0baby.wordpress.com/2018/06/03/installing-ubuntu-18-04-server-s390x-in-hercules-mainframe-simulator/
+
+Also did some updates in networking from my side, the below configuration and Hercules build steps is only approach worked with me.
+
 ### Workable Configuration with Hercules  Ubuntu 18.04
 
 Need the latest version of hercules but th very recent version has an issue after checking it out switch to older commit 
@@ -42,13 +49,13 @@ make
 make install
 ```
 
-Create Disk
+#### Create Disk
 ```
 # this create something similar to thin disk in vmware, still thick disk can be created
 dasdinit -z -lfs -linux ubuntu.disk 3390-9 LIN120
 ```
 
-Conf file
+#### Conf file
 ```
 ARCHMODE z/Arch
 ALRF ENABLE
@@ -86,7 +93,7 @@ YROFFSET 0
 ```
 
 
-Networking
+#### Networking
 
 ```
 #!/bin/bash
