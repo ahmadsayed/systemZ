@@ -49,9 +49,8 @@ make
 make install
 ```
 
-#### Create Disk
+#### Create dasd
 ```
-# this create something similar to thin disk in vmware, still thick disk can be created
 dasdinit -z -lfs -linux ubuntu.disk 3390-9 LIN120
 ```
 
