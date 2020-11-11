@@ -29,7 +29,7 @@ qemu-system-s390x.exe  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial 
 | OS            | Test      |  Status                                                            |
 |---------------|-----------|--------------------------------------------------------------------|
 | Ubuntu 18.04  | Installer | Worked without issues and Installation compeleted                  | 
-| Ubuntu 18.04  | system    | Worked without significant issues                                  |
+| Ubuntu 18.04  | system    | Worked without noticiable issues                                   |
 | Fedora 33     | Installer | Started without issues, need to work on completing it              |
 | OCP 4.2,4.5   | Installer | Started without issues, need to work on completing it              |
 
