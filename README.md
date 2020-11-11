@@ -38,10 +38,35 @@ qemu-system-s390x.exe  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial 
 
 After some trials OpenShift on Qemu looks very promising , the below configuration seems to start to wokr, ofcourse all values are dummies but coreos installted is triggered and started to work 
 
-In compare to redhat openshift documentation sample I removed "rd.neednet=1" this option, it caue some conflict with ifup the case File Exists error
 ```
-"qemu-system-s390x.exe" -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -nic user,model=virtio,hostfwd=tcp::2222-:22 --cdrom rhcos-installer.s390x.iso  -kernel images\kernel.img -initrd images\initrd.img  -hda z.img -append "coreos.inst=yes coreos.inst.install_dev=dasda coreos.inst.image_url=ftp://cl1.provide.example.com:8080/assets/rhcos-43.80.20200430.0-s390x-dasd.390x.raw.gz   coreos.inst.ignition_url=ftp://cl1.provide.example.com:8080/ignition-bootstrap-0 ip=10.1.1.2::10.1.1.1:255.255.255.0:::none nameserver=8.8.8.8  zfcp.allow_lun_scan=0 cio_ignore=all, !condev rd.dasd=0.0.3490"
+qemu-system-s390x -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 3G  -netdev tap,id=mynet0,ifname=tap0 -device virtio-net-ccw,netdev=mynet0  -kernel images/kernel.img -initrd images/initrd.img  -hda z.img  -append 'rd.neednet=1  coreos.inst=yes coreos.inst.install_dev=disk/by-path/ccw-0.0.0001 coreos.inst.image_url=ftp://10.244.128.5/rhcos-4.6.1-s390x-dasd.s390x.raw.gz coreos.inst.ignition_url=ftp://10.244.128.5/bootstrap.ign  ip=10.1.1.2::10.1.1.1:255.255.255.0:::none nameserver=10.244.128.5 rd.znet=ctc,0.0.0a00,0.0.0a01,protocol=bar  !condev rd.dasd=0.0.0001'
 ```
+
+This command do the following 
+* Boot the installation 
+* Mount configure the network
+* download the image and the ignition files
+* Extract the image 
+* Mount tmpfs 
+
+But Killed  after this state The following action needs to be taked
+* Try bigger machine, we are using very small memory 3G 
+* change the kernel and initrid because I am using 4.3 and pulling the image of 4.6
+
+### Network Configuration
+
+```
+apt install bridge-utils
+apt install uml-utilities
+ip link add name br0vm type bridge
+ip addr add 10.1.1.1/24 dev ip addr add
+ip addr add 10.1.1.1/24 dev br0vm
+ip link set br0vm up
+tunctl -t tap0
+ip link set tap0 up
+brctl addif br0vm tap0
+```
+
 ## Trials with hercules-390
 
 Here I followed a mix of those two tutorials
