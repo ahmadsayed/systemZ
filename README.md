@@ -1,4 +1,9 @@
-# System Z
+# z/Architecture Emulators
+
+
+Experimenting installing OCP and Linux on Z platform, with Emulations currently having two emulators
+* [qemu-system-s390x](https://wiki.qemu.org/Documentation/Platforms/S390X)
+* [Hercules-390](http://www.hercules-390.org/)
 
 ## Trials with Qemu on Windows 
 
