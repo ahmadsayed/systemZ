@@ -59,7 +59,6 @@ But Killed  after this state The following action needs to be taked
 apt install bridge-utils
 apt install uml-utilities
 ip link add name br0vm type bridge
-ip addr add 10.1.1.1/24 dev ip addr add
 ip addr add 10.1.1.1/24 dev br0vm
 ip link set br0vm up
 tunctl -t tap0
