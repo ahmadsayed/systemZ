@@ -108,6 +108,16 @@ sysctl -w net.ipv4.ip_forward=1
 sysctl net.ipv4.conf.eth0.forwarding=1
 ```
 
+
+## Experiment with the Installer in Qemu 
+
+| OS            | Test      |  Status                                                            |
+|---------------|-----------|--------------------------------------------------------------------|
+| Ubuntu 18.04  | Installer | Worked without issues and Installation compeleted                  | 
+| Ubuntu 18.04  | system    | Worked without significant issues                                  |
+| Fedora 33     | Installer | Started without issues, need to work on completing it              |
+| OCP 4.2,4.5   | Installer | Started without issues, need to work on completing it              |
+
 ## Experiment with the Installer in Hercules 
 
 | OS            | Test      |  Status                                                            |
