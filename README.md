@@ -24,6 +24,15 @@ Configure TAP Network still not able to figure out networking, looks like I need
 "c:\Program Files\qemu\qemu-system-s390x.exe"  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -netdev tap,id=mynet0,ifname=TAP -device virtio-net-ccw,netdev=mynet0 -drive file=z.img,if=none,id=virtio-disk0,format=raw,cache=none -device virtio-blk-ccw,devno=fe.0.0001,drive=virtio-disk0,id=virtio-disk0,bootindex=1     
 ```
 
+## Other Qemu experiments 
+
+| OS            | Test      |  Status                                                            |
+|---------------|-----------|--------------------------------------------------------------------|
+| Ubuntu 18.04  | Installer | Worked without issues and Installation compeleted                  | 
+| Ubuntu 18.04  | system    | Worked without significant issues                                  |
+| Fedora 33     | Installer | Started without issues, need to work on completing it              |
+| OCP 4.2,4.5   | Installer | Started without issues, need to work on completing it              |
+
 ## Trials with Hercules
 
 Here I followed a mix of those two tutorials
@@ -113,15 +122,6 @@ sysctl -w net.ipv4.ip_forward=1
 sysctl net.ipv4.conf.eth0.forwarding=1
 ```
 
-
-## Experiment with the Installer in Qemu 
-
-| OS            | Test      |  Status                                                            |
-|---------------|-----------|--------------------------------------------------------------------|
-| Ubuntu 18.04  | Installer | Worked without issues and Installation compeleted                  | 
-| Ubuntu 18.04  | system    | Worked without significant issues                                  |
-| Fedora 33     | Installer | Started without issues, need to work on completing it              |
-| OCP 4.2,4.5   | Installer | Started without issues, need to work on completing it              |
 
 ## Experiment with the Installer in Hercules 
 
