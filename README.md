@@ -130,7 +130,9 @@ sysctl net.ipv4.conf.eth0.forwarding=1
 | OCP 4.6       | Installer | failed to boot from Reader and ISO reported missing kernel.img I can not found it in the iso too |
 
 
-## Installing OpenShift on Hercules
+## Installing OpenShift on Hercules 
+
+#### This approach does not seem to work Hercules failed to boot the CoreOS ISO or any RHEL meanwhile Fedora up to 33 workes fine not sure why will try with qemu that shows more promising results
 
 Even if recommended in OpenShif is to create z/VM and get a VM to each node, I do not think running z/VM on emulator will be effecient.
 
