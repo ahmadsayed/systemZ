@@ -33,6 +33,15 @@ qemu-system-s390x.exe  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial 
 | Fedora 33     | Installer | Started without issues, need to work on completing it              |
 | OCP 4.2,4.5   | Installer | Started without issues, need to work on completing it              |
 
+
+## OpenShift on Qemu 
+
+After some trials OpenShift on Qemu looks very promising , the below configuration seems to start to wokr, ofcourse all values are dummies but coreos installted is triggered and started to work 
+
+In compare to redhat openshift documentation sample I removed "rd.neednet=1" this option, it caue some conflict with ifup the case File Exists error
+```
+"qemu-system-s390x.exe" -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -nic user,model=virtio,hostfwd=tcp::2222-:22 --cdrom rhcos-installer.s390x.iso  -kernel images\kernel.img -initrd images\initrd.img  -hda z.img -append "coreos.inst=yes coreos.inst.install_dev=dasda coreos.inst.image_url=ftp://cl1.provide.example.com:8080/assets/rhcos-43.80.20200430.0-s390x-dasd.390x.raw.gz   coreos.inst.ignition_url=ftp://cl1.provide.example.com:8080/ignition-bootstrap-0 ip=10.1.1.2::10.1.1.1:255.255.255.0:::none nameserver=8.8.8.8  zfcp.allow_lun_scan=0 cio_ignore=all, !condev rd.dasd=0.0.3490"
+```
 ## Trials with hercules-390
 
 Here I followed a mix of those two tutorials
