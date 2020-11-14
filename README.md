@@ -36,10 +36,10 @@ qemu-system-s390x.exe  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial 
 
 ## OpenShift on Qemu 
 
-After some trials OpenShift on Qemu looks very promising , the below configuration seems to start to wokr, ofcourse all values are dummies but coreos installted is triggered and started to work 
+Using the below command here is the results
 
 ```
-qemu-system-s390x -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 3G  -netdev tap,id=mynet0,ifname=tap0 -device virtio-net-ccw,netdev=mynet0  -kernel images/kernel.img -initrd images/initrd.img  -hda z.img  -append 'rd.neednet=1  coreos.inst=yes coreos.inst.install_dev=disk/by-path/ccw-0.0.0001 coreos.inst.image_url=ftp://10.244.128.5/rhcos-4.6.1-s390x-dasd.s390x.raw.gz coreos.inst.ignition_url=ftp://10.244.128.5/bootstrap.ign  ip=10.1.1.2::10.1.1.1:255.255.255.0:::none nameserver=10.244.128.5 rd.znet=ctc,0.0.0a00,0.0.0a01,protocol=bar  !condev rd.dasd=0.0.0001'
+qemu-system-s390x -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -m 16G  -netdev tap,id=mynet0,ifname=tap0 -device virtio-net-ccw,netdev=mynet0  -kernel  images/rhcos-installer-kernel-s390x  -initrd images/rhcos-installer-initramfs.s390x.img  -drive file=dasd/bootstrap-0,if=none,id=drive-virtio-disk0,format=raw,cache=none  -device virtio-blk-ccw,devno=fe.0.0001,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1,scsi=off  -append 'rd.neednet=1  coreos.inst=yes coreos.inst.install_dev=disk/by-path/ccw-0.0.0001  coreos.inst.image_url=ftp://10.244.128.5/rhcos-4.5.4-s390x-metal.s390x.raw.gz  coreos.inst.ignition_url=ftp://10.244.128.5/bootstrap.ign  ip=10.1.1.2::10.1.1.1:255.255.255.0:::none nameserver=10.244.128.5 rd.znet=ctc,0.0.0a00,0.0.0a01,protocol=bar !condev rd.dasd=0.0.0001'
 ```
 
 This command do the following 
@@ -48,10 +48,11 @@ This command do the following
 * download the image and the ignition files
 * Extract the image 
 * Mount tmpfs 
+* all coreos initialization done successfully.
+* reach out to ssh
+* able to ssh
+* still OCP services does not work not able to investigate as the machine very slow
 
-But Killed  after this state The following action needs to be taked
-* Try bigger machine, we are using very small memory 3G 
-* change the kernel and initrid because I am using 4.3 and pulling the image of 4.6
 
 ### Network Configuration
 
