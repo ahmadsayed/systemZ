@@ -36,6 +36,7 @@ qemu-system-s390x.exe  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial 
 
 ## OpenShift on Qemu 
 
+### reference : https://www.openshift.com/blog/installing-ocp-in-a-mainframe-z-series
 Using the below command here is the results
 
 ```
