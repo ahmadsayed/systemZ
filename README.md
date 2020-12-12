@@ -24,6 +24,12 @@ Configure TAP Network still not able to figure out networking, looks like I need
 qemu-system-s390x.exe  -machine s390-ccw-virtio -smp 4 -cpu max,zpci=on -serial mon:stdio -display none -m 4096 -netdev tap,id=mynet0,ifname=TAP -device virtio-net-ccw,netdev=mynet0 -drive file=z.img,if=none,id=virtio-disk0,format=raw,cache=none -device virtio-blk-ccw,devno=fe.0.0001,drive=virtio-disk0,id=virtio-disk0,bootindex=1     
 ```
 
+## Qemu Fedora 33 
+
+```
+qemu-system-s390x -machine s390-ccw-virtio -cpu max,zpci=on -serial mon:stdio -display none -smp 4 -m 8G -nic user,model=virtio,hostfwd=tcp::2222-:22,hostfwd=tcp::5901-:5901   -kernel /mnt/fedora/images/kernel.img  -initrd /mnt/fedora/images/initrd.img  -drive file=disk.img,if=none,id=drive-virtio-disk0,format=raw,cache=none  -device virtio-blk-ccw,devno=fe.0.0001,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1,scsi=off  -append 'inst.text inst.stage2=http://fedora.mirror.angkasa.id/pub/fedora-secondary/releases/33/Server/s390x/os/'
+```
+
 ## Other qemu-system-s390x experiments 
 
 | OS            | Test      |  Status                                                            |
