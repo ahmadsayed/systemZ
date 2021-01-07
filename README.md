@@ -7,7 +7,10 @@ Experimenting installing OCP and Linux on Z platform, with Emulations currently 
 
 ### General notes: 
 
+The following Benchmark done for Hercules, qemu and IBM Hyper Protect Virtual Server, running Linux One ubuntu 18.04
+
 Interestingly Qemu has more facilities than Hercules and outperform Hercules, but Hercules support KVM 
+
 
 #### Hercules CPU 
 
@@ -30,7 +33,7 @@ CPU: AES-encrypting 500 MB
     38.001 seconds
 ```
 
-### IBM Virtual machine on KVM
+### IBM Z Virtual machine on KVM
 ```
 CPU: SHA256-hashing 500 MB
     2.532 seconds
