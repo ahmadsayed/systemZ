@@ -43,6 +43,17 @@ CPU: AES-encrypting 500 MB
     0.351 seconds
 
 ```
+
+## Emulating z/Arch on Rasperry PI
+
+### Raspberry PI 3 B+
+Successfully compiled Hercules on Raspberry PI 3 B+, and run MVS 3.8 
+Not able to successfully install  Ubuntu 18.04 
+
+### Raspberry PI 4 B (8 GB)
+Failed to compile Hercules 
+Failed to install ubuntu on qemu-system-s390x
+
 ## Trials with Qemu on Windows 
 
 Installation
