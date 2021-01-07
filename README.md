@@ -10,23 +10,28 @@ Experimenting installing OCP and Linux on Z platform, with Emulations currently 
 Interestingly Qemu has more facilities than Hercules and outperform Hercules, but Hercules support KVM 
 
 #### Hercules CPU 
+
+```
 CPU: SHA256-hashing 500 MB
     284.661 seconds
 CPU: bzip2-compressing 500 MB
     271.677 seconds
 CPU: AES-encrypting 500 MB
     19.429 seconds
-
+```
 ### Qemu CPU 
+
+```
 CPU: SHA256-hashing 500 MB
     18.163 seconds
 CPU: bzip2-compressing 500 MB
     66.803 seconds
 CPU: AES-encrypting 500 MB
     38.001 seconds
+```
 
 ### IBM Virtual machine on KVM
-
+```
 CPU: SHA256-hashing 500 MB
     2.532 seconds
 CPU: bzip2-compressing 500 MB
@@ -34,7 +39,7 @@ CPU: bzip2-compressing 500 MB
 CPU: AES-encrypting 500 MB
     0.351 seconds
 
-
+```
 ## Trials with Qemu on Windows 
 
 Installation
