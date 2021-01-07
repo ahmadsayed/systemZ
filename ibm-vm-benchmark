@@ -1,0 +1,117 @@
+root@70112e821472:~# more /proc/cpuinfo
+vendor_id       : IBM/S390
+# processors    : 1
+bogomips per cpu: 1048.00
+max thread id   : 0
+features        : esan3 zarch stfle msa ldisp eimm dfp edat etf3eh highgprs te vx vxd vxe gs
+facilities      : 0 1 2 3 4 6 7 8 9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 30 31 32 33 34 35 36 37 38 40 41 42 43 44 45 47 48 49 50 51 52 53 54 57 58 59 60 64 69 71 73 74 75 76 77 78 80 81 82 129
+130 131 133 134 135 138 139 146 147 156
+cache0          : level=1 type=Data scope=Private size=128K line_size=256 associativity=8
+cache1          : level=1 type=Instruction scope=Private size=128K line_size=256 associativity=8
+cache2          : level=2 type=Data scope=Private size=4096K line_size=256 associativity=8
+cache3          : level=2 type=Instruction scope=Private size=2048K line_size=256 associativity=8
+cache4          : level=3 type=Unified scope=Shared size=131072K line_size=256 associativity=32
+cache5          : level=4 type=Unified scope=Shared size=688128K line_size=256 associativity=42
+processor 0: version = FF,  identification = 04A978,  machine = 3907
+
+cpu number      : 0
+cpu MHz dynamic : 4504
+cpu MHz static  : 4504
+
+
+
+
+
+
+root@70112e821472:~# (curl -s wget.racing/nench.sh | bash; curl -s wget.racing/nench.sh | bash) 2>&1 | tee nench.log
+-------------------------------------------------
+ nench.sh v2019.07.20 -- https://git.io/nench.sh
+ benchmark timestamp:    2020-12-06 04:44:56 UTC
+-------------------------------------------------
+
+Processor:
+CPU cores:
+Frequency:    4504 MHz
+RAM:          2.0G
+Swap:         -
+Kernel:       Linux 4.15.0-109-generic s390x
+
+Disks:
+vda     25G  HDD
+vdb     25G  HDD
+
+CPU: SHA256-hashing 500 MB
+    2.558 seconds
+CPU: bzip2-compressing 500 MB
+    6.938 seconds
+CPU: AES-encrypting 500 MB
+    0.351 seconds
+
+ioping: seek rate
+    min/avg/max/mdev = 101.1 us / 120.8 us / 4.30 ms / 22.2 us
+ioping: sequential read speed
+    generated 6.15 k requests in 5.00 s, 1.50 GiB, 1.23 k iops, 307.5 MiB/s
+
+dd: sequential write speed
+    1st run:    458.72 MiB/s
+    2nd run:    513.08 MiB/s
+    3rd run:    518.80 MiB/s
+    average:    496.86 MiB/s
+
+IPv4 speedtests
+    your IPv4:    168.1.32.xxxx
+
+    Cachefly CDN:         137.74 MiB/s
+    Leaseweb (NL):        8.88 MiB/s
+    Softlayer DAL (US):   5.22 MiB/s
+    Online.net (FR):      7.82 MiB/s
+    OVH BHS (CA):         9.59 MiB/s
+
+No IPv6 connectivity detected
+-------------------------------------------------
+
+-------------------------------------------------
+ nench.sh v2019.07.20 -- https://git.io/nench.sh
+ benchmark timestamp:    2020-12-06 04:46:11 UTC
+-------------------------------------------------
+
+Processor:
+CPU cores:
+Frequency:    4504 MHz
+RAM:          2.0G
+Swap:         -
+Kernel:       Linux 4.15.0-109-generic s390x
+
+Disks:
+vda     25G  HDD
+vdb     25G  HDD
+
+CPU: SHA256-hashing 500 MB
+    2.532 seconds
+CPU: bzip2-compressing 500 MB
+    6.933 seconds
+CPU: AES-encrypting 500 MB
+    0.351 seconds
+
+ioping: seek rate
+    min/avg/max/mdev = 102.5 us / 122.7 us / 9.03 ms / 44.8 us
+ioping: sequential read speed
+    generated 6.21 k requests in 5.00 s, 1.52 GiB, 1.24 k iops, 310.7 MiB/s
+
+dd: sequential write speed
+    1st run:    654.22 MiB/s
+    2nd run:    532.15 MiB/s
+    3rd run:    547.41 MiB/s
+    average:    577.93 MiB/s
+
+IPv4 speedtests
+    your IPv4:    168.1.32.xxxx
+
+    Cachefly CDN:         134.05 MiB/s
+    Leaseweb (NL):        9.29 MiB/s
+    Softlayer DAL (US):   3.16 MiB/s
+    Online.net (FR):      8.20 MiB/s
+    OVH BHS (CA):         10.28 MiB/s
+
+No IPv6 connectivity detected
+-------------------------------------------------
