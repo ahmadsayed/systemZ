@@ -5,6 +5,8 @@ Experimenting installing OCP and Linux on Z platform, with Emulations currently 
 * [qemu-system-s390x](https://wiki.qemu.org/Documentation/Platforms/S390X)
 * [Hercules-390](http://www.hercules-390.org/)
 
+General notes: Interestingly Qemu has more facilities than Hercules and outperform Hercules, but Hercules support KVM 
+
 ## Trials with Qemu on Windows 
 
 Installation
